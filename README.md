@@ -1,32 +1,49 @@
+
 # Exchange Certificate Request Generator
 
-The **Exchange Certificate Request Generator** is a Windows PowerShell GUI tool designed to simplify the management of SSL/TLS certificates for Microsoft Exchange environments. The script provides a user-friendly interface for all major certificate lifecycle operations, including generating requests, completing requests, importing/exporting, and assigning certificates to Exchange services.
+A Windows Forms-based PowerShell GUI tool to simplify the process of managing Exchange Server certificates. This tool allows administrators to connect to an Exchange environment and perform certificate-related operations such as generating CSRs, completing requests, assigning certificates to services, and importing/exporting certificates.
 
 ## Features
 
-- **Connect to Exchange**: Securely connect to an on-premises Exchange Management Shell using your credentials.
-- **Generate Certificate Requests (CSRs)**: Create new certificate signing requests, supporting both SAN and wildcard certificates.
-- **Complete Certificate Requests**: Import completed certificates and finish pending requests.
-- **Assign Certificates**: Easily assign certificates to Exchange services such as IIS, SMTP, IMAP, and POP.
-- **Export Certificates**: Export installed certificates in PFX format for backup or migration, with password protection.
-- **Import Certificates**: Import PFX certificates to one or more Exchange servers and assign them to services in a single workflow.
-- **Modern, Intuitive UI**: Step-by-step tabbed interface, field validation, and real-time feedback for each operation.
-
-## Usage
-
-1. **Connect** to your Exchange server with valid credentials.
-2. **Generate a CSR** or **complete a pending request** as needed.
-3. **Import** or **export** certificates in PFX format.
-4. **Assign** certificates to Exchange services with a single click.
-
-> **Note:** Requires appropriate Exchange administrative permissions and network access to the Exchange Management Shell.
+- 🔐 **Connect to Exchange**: Authenticate and establish a remote PowerShell session with an Exchange server.
+- 📄 **Generate Certificate Signing Requests (CSR)**:
+  - Supports SAN and Wildcard certificates.
+  - Input friendly name, subject name, and SANs.
+  - Save `.req` files for submission to a Certificate Authority.
+- ✅ **Complete Certificate Requests**:
+  - Import `.p7b` certificate chains.
+  - Automatically extract and store the thumbprint.
+- 🔧 **Assign Certificates to Services**:
+  - Assign imported certificates to IIS, SMTP, IMAP, and POP.
+  - Optionally force overwrite existing assignments.
+- 📤 **Export Certificates**:
+  - Export installed certificates as `.pfx` files.
+  - Secure with password protection.
+- 📥 **Import Certificates**:
+  - Import `.pfx` files to one or more Exchange servers.
+  - Assign to selected services during import.
 
 ## Requirements
 
-- Windows PowerShell 5.1 or later
-- Exchange Management Shell (Remote PowerShell)
-- Permissions to manage certificates on Exchange servers
+- PowerShell 5.1+
+- Exchange Management Shell access
+- Windows OS with .NET Framework (for WinForms support)
 
-## Disclaimer
+## Usage
 
-This tool is provided as-is and is intended for use by experienced Exchange administrators. Always test in a non-production environment before deploying in production.
+1. Launch the script in PowerShell.
+2. Enter Exchange credentials and server address.
+3. Choose an operation mode:
+   - **New Certificate Request**
+   - **Complete Certificate Request**
+4. Follow the form inputs and click the appropriate action buttons.
+5. Use the Export/Import buttons for certificate management.
+
+## Notes
+
+- Ensure you have the necessary permissions to manage certificates on the Exchange server.
+- The tool uses Kerberos authentication and assumes domain connectivity.
+
+## License
+
+MIT License
