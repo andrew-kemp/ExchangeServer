@@ -1,6 +1,17 @@
 ###################################################
 # Exchange Certificate Request Generator          #
+# Enhanced with Logging and Settings Persistence #
 ###################################################
+#
+# New Features Added:
+# - Audit logging to ExchangeCert_Audit.log with timestamped entries
+# - Settings persistence to ExchangeCert_Settings.ini using simple key=value format
+# - Comprehensive logging of all user actions and error conditions
+# - Automatic loading of saved settings on script startup
+# - Automatic saving of settings after key operations
+#
+# Compatible with Windows PowerShell 5.1+
+#
 
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
